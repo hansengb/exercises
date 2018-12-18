@@ -10,22 +10,31 @@ public class PantryTester
     int selected = -1;
     int ammount;
 
-    Pantry hubbard = new Pantry( goose, apple, rhub );
-    Pantry husband = new Pantry(rhub, rhub);
-    System.out.println( husband );
-    System.out.println("Welcome to Mother Hubbard's Pantry!");
+    Jam[] jams = new Jam[4];
+    jams[0] = rhub;
+    jams[1] = rhub;
+    jams[2] = rhub;
+    jams[3] = rhub;
+
+    Jam[] yams = new Jam[3];
+    yams[0] = goose;
+    yams[1] = apple;
+    yams[2] = rhub;
+    Pantry hubbard = new Pantry(yams);
+    Pantry husband = new Pantry(jams);
+    System.out.println("Welcome to Mother Husband's Pantry!");
     System.out.println("");
 
     System.out.println("The jams are: ");
-    System.out.println( hubbard );
-    System.out.println("Enter your selection (1, 2, or 3)");
+    System.out.println( husband );
+    System.out.println("Enter your selection (-1 to exit)");
     selected = scan.nextInt();
-    if(selected <= 3){
-        hubbard.select(selected);
+    if(selected >= 1 && selected < husband.length(selected)){
+        husband.select(selected);
     } else{
-        while(selected > 3){
+        if(selected > husband.length(selected)){
             System.out.println("Incorrect selection");
-            System.out.println("Enter your selection (1, 2, or 3)");
+            System.out.println("Enter your selection");
             selected = scan.nextInt();
         }
     }
@@ -36,18 +45,18 @@ public class PantryTester
     while(selected > 0){
         System.out.println("Enter ammount to spread: ");
         ammount = scan.nextInt();
-        hubbard.spread(ammount);
+        husband.spread(ammount);
 
         System.out.println("The jams are: ");
-        System.out.println( hubbard );
-        System.out.println("Enter your selection (1, 2, or 3)");
+        System.out.println( husband );
+        System.out.println("Enter your selection");
         selected = scan.nextInt();
-        if(selected <= 3){
-            hubbard.select(selected);
+        if(selected >= 1 && selected < husband.length(selected)){
+            husband.select(selected);
         } else{
-            while(selected > 3){
+            if(selected > husband.length(selected)){
                 System.out.println("Incorrect selection");
-                System.out.println("Enter your selection (1, 2, or 3)");
+                System.out.println("Enter your selection");
                 selected = scan.nextInt();
             }
         }

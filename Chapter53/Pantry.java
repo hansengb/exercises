@@ -2,36 +2,41 @@ class Pantry
 
 {
   // Instance Variables
-  private Jam jar[]
+  public Jam[] jams;
+  private Jam selected;
 
   // Constructors
-  Pantry( Jam jar[n])
+  Pantry( Jam[] jams)
   {
-    this . jar1 = jar1 ;
-    this . jar2 = jar2 ;
-    this . jar3 = jar3 ;
+    this . jams = jams;
     selected = null ;
   }
   // Methods
   public String toString()
   {
     String str = "";
-    str += "1: " +  jar1.toString()  + "\n";
-    str += "2: " +  jar2.toString()  + "\n";
-    str += "3: " +  jar3.toString()  + "\n";     
+    for(int i = 0; i <= jams.length - 1; i++){
+      str += (i+1) + ": " +  jams[i].toString()  + "\n";    
+    }
     return str;
   }
 
   // assume that the user entered a correct selection, 1, 2, or 3
   public void select( int jarNumber )
   {
-      selected =  jar[jarNumber];
+    selected = jams[jarNumber-1];
   }
 
   // spread the selected jam
   public void spread( int oz )
   {
+    System.out.println(selected);
+    System.out.println(oz);
     selected . spread( oz ) ;
+  }
+
+  public int length(int jar){
+    return jams.length;
   }
 }
 
